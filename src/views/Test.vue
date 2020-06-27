@@ -3,6 +3,7 @@
     <div>compunted: {{doubleCount}}</div>
     <div>ref: {{refNum}}</div>
     <button @click="increment">{{state.count}}</button>
+    <button @click="gotoAbout">gotoAbout</button>
   </div>
 </template>
 
@@ -19,13 +20,14 @@ export default {
     //   state.count++
     // }
 
-    const { state, increment, doubleCount, refNum } = useTest()
+    const { state, increment, doubleCount, refNum, gotoAbout } = useTest()
 
     return {
       state,
       increment,
       doubleCount,
-      refNum
+      refNum,
+      gotoAbout
     }
   }
 }
