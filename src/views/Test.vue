@@ -1,24 +1,32 @@
 <template>
   <div>
-    {{msg}}
+    <div>compunted: {{doubleCount}}</div>
+    <div>ref: {{refNum}}</div>
+    <button @click="increment">{{state.count}}</button>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import useTest from '@/views/useTest'
+
 export default {
-  name: '',
+  setup() {
+    // const state = reactive({
+    //   count: 1
+    // })
 
-  data() {
+    // const increment = () => {
+    //   state.count++
+    // }
+
+    const { state, increment, doubleCount, refNum } = useTest()
+
     return {
-      msg: '测试'
+      state,
+      increment,
+      doubleCount,
+      refNum
     }
-  },
-
-  methods: {
-
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
