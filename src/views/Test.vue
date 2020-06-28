@@ -2,8 +2,12 @@
   <div>
     <div>compunted: {{doubleCount}}</div>
     <div>ref: {{refNum}}</div>
+    <div>vuex number: {{number}}</div>
+    <div>vuex aa: {{a}}</div>
     <button @click="increment">{{state.count}}</button>
     <button @click="gotoAbout">gotoAbout</button>
+    <button @click="updateNum">vuex commit</button>
+    <button @click="updateA">vuex commit a</button>
   </div>
 </template>
 
@@ -12,23 +16,7 @@ import useTest from '@/views/useTest'
 
 export default {
   setup() {
-    // const state = reactive({
-    //   count: 1
-    // })
-
-    // const increment = () => {
-    //   state.count++
-    // }
-
-    const { state, increment, doubleCount, refNum, gotoAbout } = useTest()
-
-    return {
-      state,
-      increment,
-      doubleCount,
-      refNum,
-      gotoAbout
-    }
+    return useTest()
   }
 }
 </script>
