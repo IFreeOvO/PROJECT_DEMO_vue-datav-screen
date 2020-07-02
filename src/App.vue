@@ -4,6 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/test">Test</router-link>
+      <div class="icon">
+        <test-component></test-component>
+      </div>
     </div>
     <router-view/>
   </div>
@@ -29,5 +32,11 @@
       color: #42b983;
     }
   }
+}
+
+.icon {
+  color: green;
+  height: 20px;
+  width: 20px;
 }
 </style>
