@@ -7,6 +7,15 @@
       <div class="icon">
         <test-component></test-component>
       </div>
+      <svg width="50" height="50">
+        <use href="#more"></use>
+      </svg>
+      <svg width="50" height="50">
+        <use href="#filledArrowRight"></use>
+      </svg>
+      <svg width="50" height="50">
+        <use href="#arrowRight"></use>
+      </svg>
     </div>
     <router-view/>
   </div>
@@ -36,7 +45,7 @@
 
 .icon {
   color: green;
-  height: 20px;
-  width: 20px;
+  height: 100px;
+  width: 100px;
 }
 </style>
