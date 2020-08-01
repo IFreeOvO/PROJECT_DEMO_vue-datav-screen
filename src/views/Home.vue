@@ -10,10 +10,16 @@
       <div class="header">
         <top-header></top-header>
       </div>
-      <div class="separator">222</div>
+      <div class="separator"></div>
       <div class="center">
         <div class="left">
-          <div class="left1">333</div>
+          <div class="left1">
+            <total-user
+              :today-user="todayUser"
+              :growth-last-day="growthLastDay"
+              :growth-last-month="growthLastMonth"
+            ></total-user>
+          </div>
           <div class="left2">444</div>
           <div class="left3">555</div>
           <div class="left4">666</div>
@@ -43,13 +49,16 @@
 
 <script type="text/ecmascript-6">
 import { ref, onMounted } from 'vue'
-import TopHeader from '@/components/TopHeader'
+import TopHeader from '@/components/TopHeader/TopHeader'
+import TotalUser from '@/components/TotalUser/TotalUser'
+import useScreenData from '@/hooks/useScreenData.js'
 
 export default {
   name: 'Home',
 
   components: {
-    TopHeader
+    TopHeader,
+    TotalUser
   },
 
   setup() {
@@ -61,8 +70,11 @@ export default {
       }, 2000)
     })
 
+    const screenData = useScreenData()
+
     return {
-      loading
+      loading,
+      ...screenData
     }
   }
 }
@@ -93,7 +105,7 @@ export default {
   }
   .separator {
     height: 10px;
-    background: #000;
+    background: rgb(92, 88, 89);
     width: 100%;
   }
   .center {
