@@ -13,11 +13,11 @@
         每月增长率:<countTo :startVal='startPercent2' :endVal='growthLastMonth' :duration='1000' :decimals="2" suffix="%"></countTo>
       </span>
     </div>
-    <!-- <div class="percent">
+    <div class="percent">
       <div class="percent-inner-wrapper">
         <div class="percent-inner" :style="{ width: `${growthLastDay}%` }"/>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
