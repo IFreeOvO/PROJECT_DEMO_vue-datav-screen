@@ -3,15 +3,14 @@
     <div class="title">慕课外卖用户总数</div>
     <div class="sub-title">User Total Count</div>
     <div class="total">
-      <countTo :startVal='startVal' :endVal='endVal' :duration='3000'></countTo>
-      <!-- {{todayUser}} -->
+      <countTo :startVal='startVal' :endVal='todayUser' :duration='1000'></countTo>
     </div>
     <div class="percent-text">
       <span class="percent-text-1">
-        每日增长率:{{growthLastDay}}
+        每日增长率:<countTo :startVal='startPercent' :endVal='growthLastDay' :duration='1000' :decimals="2" suffix="%"></countTo>
       </span>
       <span class="percent-text-2">
-        每月增长率:{{growthLastMonth}}
+        每月增长率:<countTo :startVal='startPercent2' :endVal='growthLastMonth' :duration='1000' :decimals="2" suffix="%"></countTo>
       </span>
     </div>
     <!-- <div class="percent">
