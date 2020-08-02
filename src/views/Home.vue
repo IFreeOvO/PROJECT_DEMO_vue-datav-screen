@@ -24,7 +24,7 @@
             <average-age :data="ageData" :avg-age="averageAge" />
           </div>
           <div class="left3">
-            <vue-echarts :options="options"></vue-echarts>
+            <total-device :data="deviceData"></total-device>
           </div>
           <div class="left4">666</div>
           <div class="left5">777</div>
@@ -56,6 +56,7 @@ import { ref, onMounted } from 'vue'
 import TopHeader from '@/components/TopHeader/index'
 import TotalUser from '@/components/TotalUser/index'
 import AverageAge from '@/components/AverageAge/index'
+import TotalDevice from '@/components/TotalDevice/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -65,7 +66,8 @@ export default {
   components: {
     TopHeader,
     TotalUser,
-    AverageAge
+    AverageAge,
+    TotalDevice
   },
 
   setup() {
@@ -130,12 +132,12 @@ export default {
   }
   .center {
     flex: 1;
-    background: rebeccapurple;
+    // background: rebeccapurple;
     width: 100%;
     display: flex;
     .left {
       flex: 0 0 860px;
-      background: red;
+      // background: red;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -143,11 +145,11 @@ export default {
       box-sizing: border-box;
       .left1 {
         height: 300px;
-        background: green;
+        // background: green;
       }
       .left2 {
         height: 320px;
-        background: yellowgreen;
+        // background: yellowgreen;
       }
       .left3 {
         height: 280px;

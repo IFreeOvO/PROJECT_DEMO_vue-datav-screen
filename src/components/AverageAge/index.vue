@@ -41,8 +41,6 @@
 <script>
 import { ref, watch, onMounted } from 'vue'
 
-// const color = ['rgb(116,166,49)', 'rgb(190,245,99)', 'rgb(202,252,137)', 'rgb(251,253,142)']
-
 export default {
   name: 'averageAge',
   props: {
@@ -64,7 +62,7 @@ export default {
         color.push(item.color)
         axis.push(item.axis)
       })
-      console.log(data, axis)
+      // console.log(data, axis)
 
       options.value = {
         tooltip: {
