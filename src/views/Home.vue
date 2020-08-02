@@ -41,7 +41,9 @@
             <total-rider :data="riderData">
             </total-rider>
           </div>
-          <div class="left6">888</div>
+          <div class="left6">
+            <hot-category :data="hotCategoryData"></hot-category>
+          </div>
         </div>
         <div class="right">
           <div class="right-top1">999</div>
@@ -78,6 +80,7 @@ import AverageAge from '@/components/AverageAge/index'
 import TotalDevice from '@/components/TotalDevice/index'
 import TotalGender from '@/components/TotalGender/index'
 import TotalRider from '@/components/TotalRider/index'
+import HotCategory from '@/components/HotCategory/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -90,7 +93,8 @@ export default {
     AverageAge,
     TotalDevice,
     TotalGender,
-    TotalRider
+    TotalRider,
+    HotCategory
   },
 
   setup() {
@@ -176,19 +180,19 @@ export default {
       }
       .left3 {
         height: 280px;
-        background: blueviolet;
+        // background: blueviolet;
       }
       .left4 {
         height: 300px;
-        background: mediumpurple;
+        // background: mediumpurple;
       }
       .left5 {
         height: 360px;
-        background: pink;
+        // background: pink;
       }
       .left6 {
         height: 360px;
-        background: darkred;
+        // background: darkred;
       }
     }
     .right {
