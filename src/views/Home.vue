@@ -23,7 +23,9 @@
           <div class="left2">
             <average-age :data="ageData" :avg-age="averageAge" />
           </div>
-          <div class="left3">555</div>
+          <div class="left3">
+            <vue-echarts :options="options"></vue-echarts>
+          </div>
           <div class="left4">666</div>
           <div class="left5">777</div>
           <div class="left6">888</div>
@@ -55,6 +57,7 @@ import TopHeader from '@/components/TopHeader/index'
 import TotalUser from '@/components/TotalUser/index'
 import AverageAge from '@/components/AverageAge/index'
 import useScreenData from '@/hooks/useScreenData.js'
+import 'echarts/lib/chart/bar'
 
 export default {
   name: 'Home',
@@ -78,7 +81,20 @@ export default {
 
     return {
       loading,
-      ...screenData
+      ...screenData,
+      options: {
+        xAxis: {
+          data: ['a', 'b', 'c', 'd']
+        },
+        yAxis: {},
+        series: [
+          {
+            name: 'sales',
+            type: 'bar',
+            data: [10, 15, 20, 25]
+          }
+        ]
+      }
     }
   }
 }
