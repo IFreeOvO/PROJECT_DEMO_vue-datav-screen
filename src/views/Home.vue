@@ -1,14 +1,16 @@
 <template>
   <div class="home">
     <imooc-loading v-if="loading">
-      <div class="loading-text">数据大屏加载中...</div>
+      <div class="loading-text">数据大屏加载中...
+      </div>
     </imooc-loading>
     <imooc-container
       :options="{width:3840,height:2160}"
       v-else
     >
       <div class="header">
-        <top-header></top-header>
+        <top-header>
+        </top-header>
       </div>
       <div class="separator"></div>
       <div class="center">
@@ -18,18 +20,27 @@
               :today-user="todayUser"
               :growth-last-day="growthLastDay"
               :growth-last-month="growthLastMonth"
-            ></total-user>
+            >
+            </total-user>
           </div>
           <div class="left2">
-            <average-age :data="ageData" :avg-age="averageAge" />
+            <average-age
+              :data="ageData"
+              :avg-age="averageAge"
+            />
           </div>
           <div class="left3">
-            <total-device :data="deviceData"></total-device>
+            <total-device :data="deviceData">
+            </total-device>
           </div>
           <div class="left4">
-            <total-gender :data="genderData"></total-gender>
+            <total-gender :data="genderData">
+            </total-gender>
           </div>
-          <div class="left5">777</div>
+          <div class="left5">
+            <total-rider :data="riderData">
+            </total-rider>
+          </div>
           <div class="left6">888</div>
         </div>
         <div class="right">
@@ -37,14 +48,20 @@
           <div class="right-top2">000</div>
           <div class="right-bottom">
             <div class="right-left">
-              <div class="right-left1">111</div>
-              <div class="right-left2">222</div>
-              <div class="right-left3">333</div>
-              <div class="right-left4">444</div>
+              <div class="right-left1">111
+              </div>
+              <div class="right-left2">222
+              </div>
+              <div class="right-left3">333
+              </div>
+              <div class="right-left4">444
+              </div>
             </div>
             <div class="right-right">
-              <div class="right-right1">555</div>
-              <div class="right-right2">666</div>
+              <div class="right-right1">555
+              </div>
+              <div class="right-right2">666
+              </div>
             </div>
           </div>
         </div>
@@ -60,6 +77,7 @@ import TotalUser from '@/components/TotalUser/index'
 import AverageAge from '@/components/AverageAge/index'
 import TotalDevice from '@/components/TotalDevice/index'
 import TotalGender from '@/components/TotalGender/index'
+import TotalRider from '@/components/TotalRider/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -71,7 +89,8 @@ export default {
     TotalUser,
     AverageAge,
     TotalDevice,
-    TotalGender
+    TotalGender,
+    TotalRider
   },
 
   setup() {
