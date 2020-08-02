@@ -26,7 +26,9 @@
           <div class="left3">
             <total-device :data="deviceData"></total-device>
           </div>
-          <div class="left4">666</div>
+          <div class="left4">
+            <total-gender :data="genderData"></total-gender>
+          </div>
           <div class="left5">777</div>
           <div class="left6">888</div>
         </div>
@@ -57,6 +59,7 @@ import TopHeader from '@/components/TopHeader/index'
 import TotalUser from '@/components/TotalUser/index'
 import AverageAge from '@/components/AverageAge/index'
 import TotalDevice from '@/components/TotalDevice/index'
+import TotalGender from '@/components/TotalGender/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -67,7 +70,8 @@ export default {
     TopHeader,
     TotalUser,
     AverageAge,
-    TotalDevice
+    TotalDevice,
+    TotalGender
   },
 
   setup() {

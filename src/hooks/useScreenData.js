@@ -16,6 +16,8 @@ const deviceMockData = {
   ]
 }
 
+const genderMockData = [{ key: 'male', value: 1442542 }, { key: 'female', value: 1442548 }]
+
 function random(val) {
   return Math.floor(Math.random() * val)
 }
@@ -27,6 +29,7 @@ export default function() {
   const ageData = ref(ageMockData)
   const averageAge = ref(0)
   const deviceData = ref(deviceMockData)
+  const genderData = ref(genderMockData)
 
   let task
 
@@ -37,6 +40,7 @@ export default function() {
       growthLastMonth.value += 1
       averageAge.value += 1
 
+      // 年龄
       const _ageDate = [...ageData.value]
       _ageDate.forEach(item => {
         item.startValue = item.value
@@ -44,12 +48,20 @@ export default function() {
       })
       ageData.value = _ageDate
 
+      // 设备
       const _deviceData = { ...deviceData.value }
       _deviceData.totalDevices += random(100)
       _deviceData.devices.forEach(item => {
         item.value += random(100)
       })
       deviceData.value = _deviceData
+
+      // 性别
+      const _genderData = [...genderData.value]
+      _genderData.forEach(item => {
+        item.value += random(100)
+      })
+      genderData.value = _genderData
     }, 3000)
   })
 
@@ -63,6 +75,7 @@ export default function() {
     growthLastMonth,
     ageData,
     averageAge,
-    deviceData
+    deviceData,
+    genderData
   }
 }
