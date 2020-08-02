@@ -1,24 +1,17 @@
-# datav-screen-dev
+# 简介
+数据大屏项目
 
-## Project setup
+## 运行项目
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 本地调试组件库
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm link datav-libs-dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 相关文档
+[慕课网数据可视化文档](http://www.youbaobao.xyz/datav-docs/).
