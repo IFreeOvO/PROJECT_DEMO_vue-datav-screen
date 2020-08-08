@@ -21,7 +21,7 @@ export default {
     // return useTest()
     const config = ref({})
     const headerData = ['姓名', '年龄', '月薪']
-    const headerStyle = [{ color: 'red' }]
+    const headerStyle = [{ color: 'red', width: '100px' }]
 
     config.value = {
       headerData,
