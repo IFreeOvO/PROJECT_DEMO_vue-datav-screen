@@ -24,7 +24,7 @@ export default {
     const headerStyle = [{ color: 'red', width: '100px' }]
     const data = []
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
       data.push([`同学${i + 1}`, Math.floor(Math.random() * 10 + 20), Math.floor(Math.random() * 10000 + 10000)])
     }
 
@@ -34,7 +34,8 @@ export default {
       headerBg: 'rgb(80,80,80)',
       headerHeight: 40,
       headerIndex: true,
-      data
+      data,
+      rowNum: 10
     }
 
     return {
