@@ -22,13 +22,19 @@ export default {
     const config = ref({})
     const headerData = ['姓名', '年龄', '月薪']
     const headerStyle = [{ color: 'red', width: '100px' }]
+    const data = []
+
+    for (let i = 0; i < 5; i++) {
+      data.push([`同学${i + 1}`, Math.floor(Math.random() * 10 + 20), Math.floor(Math.random() * 10000 + 10000)])
+    }
 
     config.value = {
       headerData,
       headerStyle,
       headerBg: 'rgb(80,80,80)',
       headerHeight: 40,
-      headerIndex: true
+      headerIndex: true,
+      data
     }
 
     return {
