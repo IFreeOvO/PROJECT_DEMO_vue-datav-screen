@@ -49,12 +49,15 @@
           <div class="right-top1">
             <center-header :data="headerData"></center-header>
           </div>
-          <div class="right-top2">000</div>
+          <div class="right-top2">
+            <transform-category :data="['ALL','北京','上海','深圳','杭州','南京','武汉']"></transform-category>
+          </div>
           <div class="right-bottom">
             <div class="right-left">
               <div class="right-left1">111
               </div>
-              <div class="right-left2">222
+              <div class="right-left2">
+                <transform-category :data="['订单量','销售额','用户数','退单量']" :color="['rgb(178,209,126)','rgb(116,166,49)']"></transform-category>
               </div>
               <div class="right-left3">333
               </div>
@@ -84,6 +87,7 @@ import TotalGender from '@/components/TotalGender/index'
 import TotalRider from '@/components/TotalRider/index'
 import HotCategory from '@/components/HotCategory/index'
 import CenterHeader from '@/components/CenterHeader/index'
+import TransformCategory from '@/components/TransformCategory/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -98,7 +102,8 @@ export default {
     TotalGender,
     TotalRider,
     HotCategory,
-    CenterHeader
+    CenterHeader,
+    TransformCategory
   },
 
   setup() {
@@ -201,17 +206,18 @@ export default {
     }
     .right {
       flex: 1;
-      background: blue;
+      // background: blue;
       display: flex;
       flex-direction: column;
       margin-left: 10px;
       .right-top1 {
         height: 206px;
-        background: darkred;
+        // background: darkred;
       }
       .right-top2 {
         height: 48px;
-        background: cadetblue;
+        margin: 10px 0;
+        // background: cadetblue;
       }
       .right-bottom {
         flex: 1;
