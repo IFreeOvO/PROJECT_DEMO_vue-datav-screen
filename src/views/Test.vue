@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width:500px;height:400px;">
     <!-- <div>compunted: {{doubleCount}}</div>
     <div>ref: {{refNum}}</div>
     <div>vuex number: {{number}}</div>
@@ -8,11 +8,7 @@
     <button @click="gotoAbout">gotoAbout</button>
     <button @click="updateNum">vuex commit</button>
     <button @click="updateA">vuex commit a</button> -->
-    <base-scroll-list
-      :header="header"
-      :headerStyle="headerStyle"
-      :headerHeight='40'
-    ></base-scroll-list>
+    <base-scroll-list :config="config"></base-scroll-list>
   </div>
 </template>
 
@@ -23,15 +19,20 @@ import { ref } from 'vue'
 export default {
   setup() {
     // return useTest()
-    const header = ref([])
-    const headerStyle = ref([])
+    const config = ref({})
+    const headerData = ['姓名', '年龄', '月薪']
+    const headerStyle = [{ color: 'red' }]
 
-    header.value = ['姓名', '年龄', '月薪']
-    headerStyle.value = [{ color: 'red' }]
+    config.value = {
+      headerData,
+      headerStyle,
+      headerBg: 'rgb(80,80,80)',
+      headerHeight: 40,
+      headerIndex: true
+    }
 
     return {
-      header,
-      headerStyle
+      config
     }
   }
 }
