@@ -46,7 +46,9 @@
           </div>
         </div>
         <div class="right">
-          <div class="right-top1">999</div>
+          <div class="right-top1">
+            <center-header :data="headerData"></center-header>
+          </div>
           <div class="right-top2">000</div>
           <div class="right-bottom">
             <div class="right-left">
@@ -81,6 +83,7 @@ import TotalDevice from '@/components/TotalDevice/index'
 import TotalGender from '@/components/TotalGender/index'
 import TotalRider from '@/components/TotalRider/index'
 import HotCategory from '@/components/HotCategory/index'
+import CenterHeader from '@/components/CenterHeader/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -94,7 +97,8 @@ export default {
     TotalDevice,
     TotalGender,
     TotalRider,
-    HotCategory
+    HotCategory,
+    CenterHeader
   },
 
   setup() {
@@ -200,6 +204,7 @@ export default {
       background: blue;
       display: flex;
       flex-direction: column;
+      margin-left: 10px;
       .right-top1 {
         height: 206px;
         background: darkred;
