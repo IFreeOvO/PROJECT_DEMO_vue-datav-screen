@@ -28,8 +28,8 @@ export default {
     const aligns = ['center', 'left', 'right']
     const headerFontSize = 24
     const rowFontSize = 20
-    const headerColor = 'green'
-    const rowColor = 'pink'
+    const headerColor = '#fff'
+    const rowColor = '#000'
 
     for (let i = 0; i < 10; i++) {
       data.push([`同学${i + 1}`, Math.floor(Math.random() * 10 + 20), Math.floor(Math.random() * 10000 + 10000)])
@@ -42,7 +42,7 @@ export default {
       headerHeight: 40,
       headerIndex: true,
       data,
-      rowNum: 10,
+      rowNum: 5,
       rowStyle,
       rowBg,
       aligns,
