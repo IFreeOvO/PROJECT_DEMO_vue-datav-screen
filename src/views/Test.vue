@@ -42,7 +42,7 @@ export default {
       headerHeight: 40,
       headerIndex: true,
       data,
-      rowNum: 5,
+      rowNum: 10,
       rowStyle,
       rowBg,
       aligns,
