@@ -1,59 +1,67 @@
 <template>
   <div style="width:500px;height:400px;">
-    <!-- <div>compunted: {{doubleCount}}</div>
-    <div>ref: {{refNum}}</div>
-    <div>vuex number: {{number}}</div>
-    <div>vuex aa: {{a}}</div>
-    <button @click="increment">{{state.count}}</button>
-    <button @click="gotoAbout">gotoAbout</button>
-    <button @click="updateNum">vuex commit</button>
-    <button @click="updateA">vuex commit a</button> -->
-    <base-scroll-list :config="config"></base-scroll-list>
+    <vue-echarts :options="options"></vue-echarts>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import { ref } from 'vue'
-// import useTest from '@/views/useTest'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup() {
-    // return useTest()
-    const config = ref({})
-    const headerData = ['姓名', '年龄', '月薪']
-    const headerStyle = [{ color: 'red', width: '100px' }]
-    const rowStyle = [{ color: 'blue' }]
-    const rowBg = ['rgb(240,240,240)', 'rgb(255,255,255)']
-    const data = []
-    const aligns = ['center', 'left', 'right']
-    const headerFontSize = 24
-    const rowFontSize = 20
-    const headerColor = '#fff'
-    const rowColor = '#000'
+    const options = ref({})
 
-    for (let i = 0; i < 10; i++) {
-      data.push([`同学${i + 1}`, Math.floor(Math.random() * 10 + 20), Math.floor(Math.random() * 10000 + 10000)])
+    const update = () => {
+      options.value = {
+        baseOption: {
+          timeline: {
+            axisType: 'category',
+            controlStyle: {
+              position: 'left'
+            },
+            autoPlay: true,
+            playInterval: 1000,
+            loop: true, // 是否循环
+            inverse: false, // 是否反向放置timeline
+            rewind: false, // 是否反向播放
+            currentIndex: 2, // 从第几个位置开始播放
+            data: [
+              {
+                value: '2002-01-01',
+                symbol: 'diamond',
+                symbolSize: 20
+              },
+              '2003-01-01',
+              '2004-01-01',
+              '2005-01-01',
+              '2006-01-01',
+              '2007-01-01',
+              '2008-01-01',
+              '2009-01-01',
+              '2010-01-01',
+              {
+                value: '2011-01-01',
+                symbol: 'triangle',
+                symbolSize: 20
+              }
+            ],
+            label: {
+              formatter(v) {
+                return new Date(v).getFullYear()
+              }
+            }
+          }
+        },
+        options: []
+      }
     }
 
-    config.value = {
-      headerData,
-      headerStyle,
-      headerBg: 'rgb(80,80,80)',
-      headerHeight: 40,
-      headerIndex: true,
-      data,
-      rowNum: 10,
-      rowStyle,
-      rowBg,
-      aligns,
-      headerFontSize,
-      rowFontSize,
-      headerColor,
-      rowColor
-    }
+    onMounted(() => {
+      update()
+    })
 
     return {
-      config
+      options
     }
   }
 }
