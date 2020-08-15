@@ -256,8 +256,9 @@ export default {
           justify-content: space-between;
           margin-right: 20px;
           .right-right1 {
+            width: 100%;
             height: 999px;
-            background: burlywood;
+            // background: burlywood;
           }
           .right-right2 {
             flex: 1;
