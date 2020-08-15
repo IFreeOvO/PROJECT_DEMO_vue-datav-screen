@@ -65,7 +65,8 @@
               </div>
             </div>
             <div class="right-right">
-              <div class="right-right1">555
+              <div class="right-right1">
+                <sales-list :data="salesListData"></sales-list>
               </div>
               <div class="right-right2">666
               </div>
@@ -88,6 +89,7 @@ import TotalRider from '@/components/TotalRider/index'
 import HotCategory from '@/components/HotCategory/index'
 import CenterHeader from '@/components/CenterHeader/index'
 import TransformCategory from '@/components/TransformCategory/index'
+import SalesList from '@/components/SalesList/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -103,6 +105,7 @@ export default {
     TotalRider,
     HotCategory,
     CenterHeader,
+    SalesList,
     TransformCategory
   },
 
@@ -251,6 +254,7 @@ export default {
           flex-direction: column;
           margin-left: 10px;
           justify-content: space-between;
+          margin-right: 20px;
           .right-right1 {
             height: 999px;
             background: burlywood;
