@@ -1,6 +1,5 @@
 <template>
   <div style="width:100%;height:100%">
-    <!-- <jiangsu-map-warning></jiangsu-map-warning> -->
     <vue-echarts :options="options"></vue-echarts>
   </div>
 </template>
@@ -8,12 +7,9 @@
 <script type="text/ecmascript-6">
 import echarts from 'echarts'
 import { ref, onMounted } from 'vue'
-// import JiangsuMapWarning from '@/components/JiangsuMapWarning/index'
 
 export default {
-  // components: {
-  //   JiangsuMapWarning
-  // },
+  name: 'JiangsuMapWarning',
 
   setup() {
     const options = ref({})
@@ -46,7 +42,7 @@ export default {
             geo: [{
               map: 'jiangsu',
               zoom: 1,
-              roam: true, // 启用鼠标滚动缩放
+              roam: false, // 启用鼠标滚动缩放
               scaleLimit: {
                 min: 0,
                 max: 3
@@ -62,6 +58,8 @@ export default {
             series: [{
               type: 'map',
               mapType: 'jiangsu', // 将数据和地图关联
+              zoom: 1,
+              roam: true,
               label: {
                 show: true,
                 color: '#fff',
@@ -105,4 +103,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

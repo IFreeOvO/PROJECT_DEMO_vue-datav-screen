@@ -54,7 +54,8 @@
           </div>
           <div class="right-bottom">
             <div class="right-left">
-              <div class="right-left1">111
+              <div class="right-left1">
+                <jiangsu-map-warning></jiangsu-map-warning>
               </div>
               <div class="right-left2">
                 <transform-category :data="['订单量','销售额','用户数','退单量']" :color="['rgb(178,209,126)','rgb(116,166,49)']"></transform-category>
@@ -90,6 +91,8 @@ import HotCategory from '@/components/HotCategory/index'
 import CenterHeader from '@/components/CenterHeader/index'
 import TransformCategory from '@/components/TransformCategory/index'
 import SalesList from '@/components/SalesList/index'
+// import GdpTimelineChart from '@/components/GdpTimelineChart/index'
+import JiangsuMapWarning from '@/components/JiangsuMapWarning/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -106,6 +109,8 @@ export default {
     HotCategory,
     CenterHeader,
     SalesList,
+    // GdpTimelineChart,
+    JiangsuMapWarning,
     TransformCategory
   },
 
@@ -233,7 +238,7 @@ export default {
           justify-content: space-between;
           .right-left1 {
             height: 999px;
-            background: red;
+            // background: red;
           }
           .right-left2 {
             height: 80px;
