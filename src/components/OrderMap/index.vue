@@ -26,8 +26,51 @@ export default {
     const update = () => {
       fetch('http://www.youbaobao.xyz/datav-res/datav/map.json').then(response => response.json()).then(data => {
         echarts.registerMap('china', data)
+        const cities = ['北京', '上海', '深圳', '广州', '杭州', '南京']
         options.value = {
-          timeline: {},
+          timeline: {
+            data: cities,
+            axisType: 'category',
+            autoPlay: true,
+            playInterval: 3000,
+            left: '10%',
+            right: '5%',
+            bottom: '3%',
+            width: '80%',
+            label: {
+              normal: {
+                textStyle: {
+                  color: '#ddd'
+                }
+              },
+              emphasis: {
+                textStyle: {
+                  color: '#fff'
+                }
+              }
+            },
+            symbolSize: 10,
+            lineStyle: {
+              color: '#555'
+            },
+            // 当前项样式
+            checkpointStyle: {
+              borderColor: '#777',
+              borderWidth: 2
+            },
+            controlStyle: {
+              showNextBtm: true,
+              showPrevBtn: true,
+              normal: {
+                color: '#666',
+                borderColor: '#666'
+              },
+              emphasis: {
+                color: '#aaa',
+                borderColor: '#aaa'
+              }
+            }
+          },
           baseOption: {
             geo: {
               map: 'china',
@@ -91,6 +134,7 @@ export default {
 <style lang="scss" scoped>
 .order-map {
   height: 100%;
+  background: rgb(48, 48, 48);
   .loading {
     display: flex;
     justify-content: center;
