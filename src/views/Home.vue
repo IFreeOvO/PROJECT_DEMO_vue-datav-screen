@@ -57,7 +57,8 @@
               <div class="right-left1">
                 <!-- <jiangsu-map-warning></jiangsu-map-warning> -->
                 <!-- <rotating-earth></rotating-earth> -->
-                <flight-earth></flight-earth>
+                <!-- <flight-earth></flight-earth> -->
+                <order-map></order-map>
               </div>
               <div class="right-left2">
                 <transform-category :data="['订单量','销售额','用户数','退单量']" :color="['rgb(178,209,126)','rgb(116,166,49)']"></transform-category>
@@ -96,7 +97,8 @@ import SalesList from '@/components/SalesList/index'
 // import GdpTimelineChart from '@/components/GdpTimelineChart/index'
 // import JiangsuMapWarning from '@/components/JiangsuMapWarning/index'
 // import RotatingEarth from '@/components/RotatingEarth/index'
-import FlightEarth from '@/components/FlightEarth/index'
+// import FlightEarth from '@/components/FlightEarth/index'
+import OrderMap from '@/components/OrderMap/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -113,10 +115,11 @@ export default {
     HotCategory,
     CenterHeader,
     SalesList,
+    OrderMap,
     // GdpTimelineChart,
     // JiangsuMapWarning,
     // RotatingEarth,
-    FlightEarth,
+    // FlightEarth,
     TransformCategory
   },
 
