@@ -330,6 +330,41 @@ export default {
             categoryData[i].push(mapData[i][j].name)
           }
         }
+
+        // 散点数据
+        const convertData = function (data) {
+          const res = []
+          for (let i = 0; i < data.length; i++) {
+            const geoCoord = geoCoordMap[data[i].name]
+            if (geoCoord) {
+              res.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value)
+              })
+            }
+          }
+          return res
+        }
+
+        // 飞线数据
+        const convertToLineData = function(data, gps) {
+          const res = []
+          for (let i = 0; i < data.length; i++) {
+            const dataItem = data[i]
+            const toCoord = geoCoordMap[dataItem.name]
+            const fromCoord = gps
+            if (fromCoord && toCoord) {
+              res.push([{
+                coord: fromCoord,
+                value: dataItem.value
+              }, {
+                coord: toCoord
+              }])
+            }
+          }
+          return res
+        }
+
         /* eslint-enable */
         echarts.registerMap('china', data)
 
@@ -397,7 +432,7 @@ export default {
             geo: {
               map: 'china',
               zoom: 1.1,
-              roam: false,
+              roam: true,
               scaleLimit: {
                 min: 0.5,
                 max: 3
@@ -432,6 +467,11 @@ export default {
                 emphasis: {
                   areaColor: '#389BB7',
                   borderWidth: 0
+                }
+              },
+              label: {
+                emphasis: {
+                  show: false
                 }
               }
             }
@@ -513,6 +553,56 @@ export default {
                     color: colors[colorIndex][i]
                   }
                 }
+              },
+              {
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                data: convertData(mapData[i]),
+                symbolSize: function(val) {
+                  return val[2] / 10
+                },
+                // 涟漪样式
+                rippleEffect: {
+                  brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                  normal: {
+                    position: 'right',
+                    show: true,
+                    formatter: function(params) {
+                      return params.data.name
+                    }
+                  }
+                },
+                itemStyle: {
+                  normal: {
+                    color: colors[colorIndex][i],
+                    shadowColor: colors[colorIndex][i],
+                    shadowBlur: 10
+                  }
+                },
+                zlevel: 1
+              },
+              {
+                type: 'lines',
+                data: convertToLineData(mapData[i], geoGpsMap[i + 1]),
+                effect: {
+                  show: true,
+                  period: 4,
+                  symbol: 'arrow',
+                  symbolSize: 3,
+                  trailLength: 0.02
+                },
+                lineStyle: {
+                  normal: {
+                    color: colors[colorIndex][i],
+                    width: 0.1,
+                    opacity: 0.5,
+                    curveness: 0.3
+                  }
+                },
+                zlevel: 2
               }
             ]
           })
