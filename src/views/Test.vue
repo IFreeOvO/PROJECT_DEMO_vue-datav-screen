@@ -1,15 +1,15 @@
 <template>
   <div style="width:100%;height:100%">
-    <flight-earth></flight-earth>
+    <order-map></order-map>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import FlightEarth from '@/components/FlightEarth/index'
+import OrderMap from '@/components/OrderMap/index'
 
 export default {
   components: {
-    FlightEarth
+    OrderMap
   },
 
   setup() {
