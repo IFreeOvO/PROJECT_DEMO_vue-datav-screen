@@ -14,4 +14,4 @@ npm link datav-libs-dev
 
 
 ### 相关文档
-[慕课网数据可视化文档](http://www.youbaobao.xyz/datav-docs/).
+[慕课网数据可视化文档](http://www.youbaobao.xyz/datav-docs/)
