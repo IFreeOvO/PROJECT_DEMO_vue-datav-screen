@@ -68,14 +68,16 @@
                   <real-time-order :data="realTimeOrderData"></real-time-order>
                 </imooc-fly-box>
               </div>
-              <div class="right-left4">444
+              <div class="right-left4">
+                <schedule-view :data="scheduleViewData"></schedule-view>
               </div>
             </div>
             <div class="right-right">
               <div class="right-right1">
                 <sales-list :data="salesListData"></sales-list>
               </div>
-              <div class="right-right2">666
+              <div class="right-right2">
+                <sales-rank :data="salesRankData"></sales-rank>
               </div>
             </div>
           </div>
@@ -103,6 +105,8 @@ import SalesList from '@/components/SalesList/index'
 // import FlightEarth from '@/components/FlightEarth/index'
 import OrderMap from '@/components/OrderMap/index'
 import RealTimeOrder from '@/components/RealTimeOrder/index'
+import ScheduleView from '@/components/ScheduleView/index'
+import SalesRank from '@/components/SalesRank/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -125,6 +129,8 @@ export default {
     // RotatingEarth,
     // FlightEarth,
     RealTimeOrder,
+    ScheduleView,
+    SalesRank,
     TransformCategory
   },
 
