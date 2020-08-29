@@ -1,4 +1,5 @@
 import { ref, onMounted, onUnmounted } from 'vue'
+import { screenData } from '@/api/index'
 
 const ageMockData = [
   { startValue: 0, value: 131107, axis: '0-20', color: 'rgb(116,166,49)' },
@@ -1166,14 +1167,16 @@ const salesRankMockData = [
   }
 ]
 
-function random(val) {
-  return Math.floor(Math.random() * val)
-}
+// function random(val) {
+//   return Math.floor(Math.random() * val)
+// }
+
+const color = ['rgb(116,166,49)', 'rgb(190,245,99)', 'rgb(202,252,137)', 'rgb(251,253,142)']
 
 export default function() {
-  const todayUser = ref(10000)
-  const growthLastDay = ref(10.25)
-  const growthLastMonth = ref(15.15)
+  const todayUser = ref(0)
+  const growthLastDay = ref(0)
+  const growthLastMonth = ref(0)
   const ageData = ref(ageMockData)
   const averageAge = ref(0)
   const deviceData = ref(deviceMockData)
@@ -1188,62 +1191,113 @@ export default function() {
 
   let task
 
+  const update = () => {
+    screenData().then(data => {
+      // console.log('data', data)
+      // 用户总数数据
+      todayUser.value = +data.userToday || 0
+      growthLastDay.value = +data.userGrowthLastDay || 0
+      growthLastMonth.value = +data.userGrowthLastMonth || 0
+
+      // 年龄分布数据
+      const _ageData = []
+      data.age.forEach((item, index) => {
+        if (ageData.value[index]) {
+          _ageData.push({
+            startValue: ageData.value[index].value,
+            value: item.value,
+            axis: item.key,
+            color: color[index]
+          })
+        } else {
+          _ageData.push({
+            startValue: 0,
+            value: item.value,
+            axis: item.key,
+            color: color[index]
+          })
+        }
+      })
+      ageData.value = _ageData
+      averageAge.value = +data.averageAge
+
+      // 登录设备数据
+      deviceData.value = {
+        totalDevices: data.totalDevices,
+        devices: data.devices
+      }
+
+      // 性别分布
+      genderData.value = data.gender
+
+      // 骑手数据
+      riderData.value = data.rider
+
+      // 热门分类数据
+      hotCategoryData.value = data.category
+    })
+  }
+
   onMounted(() => {
+    update()
+
     task = setInterval(() => {
-      todayUser.value += 10
-      growthLastDay.value += 1
-      growthLastMonth.value += 1
-      averageAge.value += 1
+      update()
 
-      // 年龄
-      const _ageDate = [...ageData.value]
-      _ageDate.forEach(item => {
-        item.startValue = item.value
-        item.value = item.value + random(100)
-      })
-      ageData.value = _ageDate
+      // todayUser.value += 10
+      // growthLastDay.value += 1
+      // growthLastMonth.value += 1
+      // averageAge.value += 1
 
-      // 设备
-      const _deviceData = { ...deviceData.value }
-      _deviceData.totalDevices += random(100)
-      _deviceData.devices.forEach(item => {
-        item.value += random(100)
-      })
-      deviceData.value = _deviceData
+      // // 年龄
+      // const _ageDate = [...ageData.value]
+      // _ageDate.forEach(item => {
+      //   item.startValue = item.value
+      //   item.value = item.value + random(100)
+      // })
+      // ageData.value = _ageDate
 
-      // 性别
-      const _genderData = [...genderData.value]
-      _genderData.forEach(item => {
-        item.value += random(100)
-      })
-      genderData.value = _genderData
+      // // 设备
+      // const _deviceData = { ...deviceData.value }
+      // _deviceData.totalDevices += random(100)
+      // _deviceData.devices.forEach(item => {
+      //   item.value += random(100)
+      // })
+      // deviceData.value = _deviceData
 
-      // 骑手
-      const _riderData = { ...riderData.value }
-      _riderData.orderData.data1 = _riderData.orderData.data1.map(item => {
-        item = item + random(100)
-        return item
-      })
-      _riderData.orderData.data2 = _riderData.orderData.data2.map(item => {
-        item = item + random(100)
-        return item
-      })
-      _riderData.rateData.data1 = _riderData.rateData.data1.map(item => {
-        item = item + random(100)
-        return item
-      })
-      _riderData.rateData.data2 = _riderData.rateData.data2.map(item => {
-        item = item + random(100)
-        return item
-      })
-      riderData.value = _riderData
+      // // 性别
+      // const _genderData = [...genderData.value]
+      // _genderData.forEach(item => {
+      //   item.value += random(100)
+      // })
+      // genderData.value = _genderData
 
-      const _hotCategoryData = { ...hotCategoryData.value }
-      _hotCategoryData.data1.data1 = _hotCategoryData.data1.data1.map(item => {
-        item = item + random(100)
-        return item
-      })
-      hotCategoryData.value = _hotCategoryData
+      // // 骑手
+      // const _riderData = { ...riderData.value }
+      // _riderData.orderData.data1 = _riderData.orderData.data1.map(item => {
+      //   item = item + random(100)
+      //   return item
+      // })
+      // _riderData.orderData.data2 = _riderData.orderData.data2.map(item => {
+      //   item = item + random(100)
+      //   return item
+      // })
+      // _riderData.rateData.data1 = _riderData.rateData.data1.map(item => {
+      //   item = item + random(100)
+      //   return item
+      // })
+      // _riderData.rateData.data2 = _riderData.rateData.data2.map(item => {
+      //   item = item + random(100)
+      //   return item
+      // })
+      // riderData.value = _riderData
+
+      // const _hotCategoryData = { ...hotCategoryData.value }
+      // _hotCategoryData.data1.data1 = _hotCategoryData.data1.data1.map(item => {
+      //   item = item + random(100)
+      //   return item
+      // })
+      // hotCategoryData.value = _hotCategoryData
     }, 3000)
   })
 
