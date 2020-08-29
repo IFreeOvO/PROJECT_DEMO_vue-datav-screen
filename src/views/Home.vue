@@ -63,7 +63,10 @@
               <div class="right-left2">
                 <transform-category :data="['订单量','销售额','用户数','退单量']" :color="['rgb(178,209,126)','rgb(116,166,49)']"></transform-category>
               </div>
-              <div class="right-left3">333
+              <div class="right-left3">
+                <imooc-fly-box starColor="rgb(251,253,142)">
+                  <real-time-order :data="realTimeOrderData"></real-time-order>
+                </imooc-fly-box>
               </div>
               <div class="right-left4">444
               </div>
@@ -99,6 +102,7 @@ import SalesList from '@/components/SalesList/index'
 // import RotatingEarth from '@/components/RotatingEarth/index'
 // import FlightEarth from '@/components/FlightEarth/index'
 import OrderMap from '@/components/OrderMap/index'
+import RealTimeOrder from '@/components/RealTimeOrder/index'
 import useScreenData from '@/hooks/useScreenData.js'
 import 'echarts/lib/chart/bar'
 
@@ -120,6 +124,7 @@ export default {
     // JiangsuMapWarning,
     // RotatingEarth,
     // FlightEarth,
+    RealTimeOrder,
     TransformCategory
   },
 
@@ -251,11 +256,11 @@ export default {
           }
           .right-left2 {
             height: 80px;
-            background: yellowgreen;
+            // background: yellowgreen;
           }
           .right-left3 {
             height: 350px;
-            background: deepskyblue;
+            // background: deepskyblue;
           }
           .right-left4 {
             height: 220px;

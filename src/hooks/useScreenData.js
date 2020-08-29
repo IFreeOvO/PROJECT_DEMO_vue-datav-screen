@@ -333,6 +333,23 @@ const headerMockData = {
   ]
 }
 
+// 实时订单数据
+const realTimeOrderMockData = {
+  date: [
+    '12:25:13',
+    '12:25:17',
+    '12:25:22',
+    '12:25:27',
+    '12:25:32',
+    '12:25:37',
+    '12:25:42',
+    '12:25:47',
+    '12:25:52',
+    '12:25:57'
+  ],
+  data: [1143, 769, 251, 733, 335, 969, 869, 1390, 168, 1391]
+}
+
 function random(val) {
   return Math.floor(Math.random() * val)
 }
@@ -349,6 +366,7 @@ export default function() {
   const hotCategoryData = ref(hotCategoryMockData)
   const headerData = ref(headerMockData)
   const salesListData = ref(salesListMockData)
+  const realTimeOrderData = ref(realTimeOrderMockData)
 
   let task
 
@@ -426,6 +444,7 @@ export default function() {
     riderData,
     hotCategoryData,
     salesListData,
-    headerData
+    headerData,
+    realTimeOrderData
   }
 }
