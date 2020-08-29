@@ -12,6 +12,8 @@ npm run serve
 npm link datav-libs-dev
 ```
 
+### 项目在线预览
+[慕课网数据大屏项目](https://ifreeovo.github.io/PROJECT_DEMO_vue-datav-screen/)
 
 ### 相关文档
 [慕课网数据可视化文档](http://www.youbaobao.xyz/datav-docs/)
